@@ -156,7 +156,7 @@ public class DifficultyTableParser {
 	}
 
 	private String getAbsoluteURL(String source, String path) throws MalformedURLException {
-		return new URL(new URL(source), path).toExternalForm();
+		return new URL(source == null || source.isBlank() ? null : new URL(source), path).toExternalForm();
 	}
 
 	private <T> T readValue(ObjectMapper mapper, URL url, TypeReference<T> type) throws IOException {
